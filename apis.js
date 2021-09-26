@@ -1,11 +1,11 @@
 function get_param(name){
 	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-	return results[1];
+	return results[1] || 0;
 }
 
-if( get_param("prod") !== "undefined" ){
-	if( get_param("lang") !== "undefined" ){
-		langs = langs+'.';
+if( get_param("prod") !== 0 ){
+	if( get_param("lang") !== 0 ){
+		langs = get_param("lang")+'.';
 	} else {
 		langs = '';
 	}
