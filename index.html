@@ -1,13 +1,47 @@
-<html>
+<html lang="en">
   <head>
-    <script src="/apis.js"></script>
+    <title>Today Promotions Exclusive Sale Big Discount</title>
+    <!-- <script src="https://raw.githack.com/abiazizi/oke/main/apis.js"></script> -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta content='Electronics Discount, Sports, Weddings, Online shopping, Automotive, Phones, Accessories, Computers, Electronics, Fashion, Beauty, Health, Home, Garden, Toys' name='keywords'/> 
-    <title>Today Promotions Exclusive Sale Big Discount</title>
+<script type="text/javascript">
+$(document).ready(function(){
+  var urlxml  = '/sitemap'+Math.floor(Math.random() * 50)+'.xml';
+
+  $.ajax({
+    type: "GET",
+    url: urlxml,
+    dataType: "xml",
+
+    success: function(response){
+      for (var oi = 1; oi <= 8; oi++) {
+        var sta = Math.floor(Math.random()*2000);
+        for (var i = sta; i <= (sta+10); i++) {
+          var idlist = $(response).find("url loc").eq(i).text();
+          var iddd = idlist.match(/\?prod=(.*?)&/)[1];
+
+          var asq = '<a href="'+idlist+'">'+iddd+'</a>';
+          $('#product-list-'+oi).append(asq+", ");
+        }
+      }
+    }
+  });
+});
+</script>
   </head>
   <body>
     <div style='text-align:center;'><img src='https://1.bp.blogspot.com/-EL5jA2WYDFk/YLLk7MkC_5I/AAAAAAAAABI/HU4MAN36aHUk3Q_1dsoDa13KrU2ovBOcQCLcBGAsYHQ/s818/pngwing.com.png' width='30%'/></div>  
     <div style='text-align:center;'><img src='https://1.bp.blogspot.com/-1KgTuEpdaiM/YLL_VIziHEI/AAAAAAAAABo/nMUJhbFV9c8OgSPQ7fZbYWdlhANJ-VxVgCLcBGAsYHQ/s320/512x512.gif' width='5%'/></div> 
+    <h1>Product List</h1>
+    <div id="product-list-1"></div><br>
+    <div id="product-list-2"></div><br>
+    <div id="product-list-3"></div><br>
+    <div id="product-list-4"></div><br>
+    <div id="product-list-5"></div><br>
+    <div id="product-list-6"></div><br>
+    <div id="product-list-7"></div><br>
+    <div id="product-list-8"></div><br>
   </body>
 </html>
